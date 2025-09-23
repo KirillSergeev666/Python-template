@@ -2,10 +2,10 @@
 
 def solve():
 # Ниже пишите решение задачи
-
     a, b = map(int, input().split())
-    not_shot_by_harry = b - 1
-    not_shot_by_larry = a - 1
+    total = a + b - 1
+    not_shot_by_harry = total - a
+    not_shot_by_larry = total - b
     print(not_shot_by_harry, not_shot_by_larry)
 
 
