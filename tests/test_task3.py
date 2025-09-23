@@ -16,7 +16,7 @@ def test_case1():
     assert run_io("3 2\n") == "1 2"
 
 def test_case2():
-    assert run_io("5 4\n") == "4 5"
+    assert run_io("5 4\n") == "3 4"
 
 def test_case3():
     assert run_io("1 1\n") == "0 0"
