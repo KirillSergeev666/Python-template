@@ -1,17 +1,9 @@
-import io
-import sys
-
-def solve():
-    S = int(input())
-    p = S // 6
-    k = 4 * p
-    s = p
-    print(p, k, s)
+import io, sys
+from tasks.task1 import solve
 
 def run_io(input_data: str) -> str:
     old_in, old_out = sys.stdin, sys.stdout
-    sys.stdin = io.StringIO(input_data)
-    sys.stdout = io.StringIO()
+    sys.stdin, sys.stdout = io.StringIO(input_data), io.StringIO()
     try:
         solve()
         return sys.stdout.getvalue().strip()
@@ -19,10 +11,7 @@ def run_io(input_data: str) -> str:
         sys.stdin, sys.stdout = old_in, old_out
 
 def test_case1():
-    assert run_io("6\n") == "1 4 1"
+    assert run_io("123\n") == "6"
+
 def test_case2():
-    assert run_io("24\n") == "4 16 4"
-def test_case3():
-    assert run_io("60\n") == "10 40 10"
-def test_case4():
-    assert run_io("12\n") == "2 8 2"
+    assert run_io("109\n") == "10"

@@ -1,11 +1,9 @@
-import io
-import sys
+import io, sys
 from tasks.task2 import solve
 
 def run_io(input_data: str) -> str:
     old_in, old_out = sys.stdin, sys.stdout
-    sys.stdin = io.StringIO(input_data)
-    sys.stdout = io.StringIO()
+    sys.stdin, sys.stdout = io.StringIO(input_data), io.StringIO()
     try:
         solve()
         return sys.stdout.getvalue().strip()
@@ -13,16 +11,13 @@ def run_io(input_data: str) -> str:
         sys.stdin, sys.stdout = old_in, old_out
 
 def test_case1():
-    # 2 карандаша, 3 ручки, 1 фломастер
-    # 2*3 + 3*5 + 1*12 = 33
-    assert run_io("2 3 1\n") == "33"
+    assert run_io("137\n") == "2 17"
 
 def test_case2():
-    # 1 карандаш, 1 ручка, 1 фломастер
-    # 1*3 + 1*5 + 1*12 = 20
-    assert run_io("1 1 1\n") == "20"
+    assert run_io("2879\n") == "23 59"
 
 def test_case3():
-    # 0 карандашей, 5 ручек, 2 фломастера
-    # 0*3 + 5*5 + 2*12 = 49
-    assert run_io("0 5 2\n") == "49"
+    assert run_io("1511\n") == "1 11"
+
+def test_case4():
+    assert run_io("608862\n") == "19 42"
